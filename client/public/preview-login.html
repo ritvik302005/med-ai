@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MedAI Preview Login</title>
+  </head>
+  <body>
+    <p>Signing into preview...</p>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const token = params.get('token');
+      const redirect = params.get('redirect') || '/dashboard';
+
+      if (token) {
+        window.localStorage.setItem('medai_token', token);
+      }
+
+      window.location.replace(redirect);
+    </script>
+  </body>
+</html>
